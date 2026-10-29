@@ -1,0 +1,93 @@
+{
+  "kicker": "A GUIDED STARTING POINT",
+  "title": "Explore a concern, one step at a time.",
+  "intro": "This short guide offers educational possibilities to read about. It cannot determine what condition you have.",
+  "stepsAria": "Three-step educational guide",
+  "disclaimer": "This symptom checker is for education only and cannot diagnose a condition. For persistent, worsening, painful, or rapidly spreading symptoms, consult a qualified dermatologist.",
+  "stepOne": {
+    "title": "Step 1 · What is your main concern?",
+    "legend": "Choose one to begin",
+    "warning": "Please choose a concern to continue.",
+    "next": "Continue",
+    "choices": [
+      { "value": "rash", "label": "Skin rash or redness", "group": "skin" },
+      { "value": "itch", "label": "Itching", "group": "skin" },
+      { "value": "acne", "label": "Acne or pimples", "group": "acne" },
+      { "value": "dry", "label": "Dryness or flaking", "group": "skin" },
+      { "value": "spots", "label": "Dark spots or pigmentation", "group": "pigment" },
+      { "value": "thinning", "label": "Hair thinning or shedding", "group": "hair" },
+      { "value": "patchy", "label": "Patchy hair loss", "group": "hair" },
+      { "value": "dandruff", "label": "Dandruff or scalp irritation", "group": "scalp" },
+      { "value": "other", "label": "Other skin or hair concern", "group": "other" }
+    ]
+  },
+  "stepTwo": {
+    "title": "Step 2 · A little more context",
+    "hint": "These questions help you reflect on your symptoms; they do not determine a diagnosis.",
+    "warning": "Please answer all four questions to continue.",
+    "back": "Back",
+    "results": "See educational possibilities",
+    "questions": [
+      {
+        "id": "area",
+        "label": "Where is it most noticeable?",
+        "placeholder": "Select an area",
+        "options": ["Face", "Scalp", "Body or limbs", "Several areas", "Not sure"]
+      },
+      {
+        "id": "onset",
+        "label": "When did it start?",
+        "placeholder": "Select a timeframe",
+        "options": [
+          "In the last few days",
+          "In the last few weeks",
+          "For months or longer",
+          "Not sure"
+        ]
+      },
+      {
+        "id": "worsening",
+        "label": "Does it seem to be worsening?",
+        "placeholder": "Select an answer",
+        "options": ["Yes", "No", "Not sure"]
+      },
+      {
+        "id": "associated",
+        "label": "Any associated symptoms?",
+        "placeholder": "Select what applies",
+        "options": [
+          "None noticed",
+          "Itching or flaking",
+          "Pain or inflammation",
+          "Pus or rapidly spreading symptoms",
+          "Rapid hair loss",
+          "Not sure"
+        ]
+      }
+    ]
+  },
+  "stepThree": {
+    "kicker": "STEP 3 · EDUCATIONAL RESULTS",
+    "title": "Topics you could explore",
+    "intro": "The examples below are not a diagnosis or ranked by likelihood. Many conditions overlap in appearance; only an appropriate clinical assessment can clarify your concern.",
+    "context": "Your answers are a reflection aid only. They have not been used to identify a condition or calculate a probability.",
+    "urgent": "Please seek prompt medical advice for painful inflammation, pus, rapidly spreading symptoms, or rapid hair loss. If symptoms are severe or you feel unwell, seek urgent care.",
+    "urgentAnswers": [
+      "Pain or inflammation",
+      "Pus or rapidly spreading symptoms",
+      "Rapid hair loss"
+    ],
+    "back": "Back",
+    "restart": "Start again",
+    "book": "Book a Consultation",
+    "bookHref": "#contact",
+    "results": {
+      "skin": "An educational possibility: eczema or contact dermatitis can involve irritation. Psoriasis or other causes may also deserve discussion. Read the condition guides and seek an assessment if symptoms persist.",
+      "acne": "An educational possibility: acne can involve pimples, but similar-looking bumps can have other causes. A dermatologist can discuss skin care and suitable treatment approaches.",
+      "pigment": "An educational possibility: melasma is one cause of uneven pigmentation; other changes can look similar. Sun protection and a professional assessment are useful topics to discuss.",
+      "hair": "An educational possibility: pattern hair loss, telogen effluvium, or alopecia areata may be worth reading about. These are different conditions and cannot be distinguished by this guide.",
+      "scalp": "An educational possibility: dandruff or seborrheic dermatitis may involve flakes. Scalp psoriasis and other concerns can also look similar; an assessment can help clarify next steps.",
+      "other": "An educational possibility: your concern may relate to a range of skin or hair changes. Browse the library, note what you have noticed, and discuss it with a qualified dermatologist."
+    }
+  }
+}

@@ -1,0 +1,327 @@
+{
+  "ui": {
+    "defaultView": "3d",
+    "kicker": "INTERACTIVE EXPLORER",
+    "title": "Tap the area that concerns you.",
+    "intro": "Choose skin, face or hair, pick a 2D or 3D model, then select the area where you notice a change. Describe it and get educational topics to read about.",
+    "tabs": { "skin": "Skin", "face": "Face", "hair": "Hair & Scalp" },
+    "views": { "2d": "2D", "3d": "3D" },
+    "sides": { "front": "Front", "back": "Back", "top": "Top view" },
+    "placeholderTitle": "Choose what you would like to explore",
+    "placeholderBody": "Select Skin, Face or Hair & Scalp to open the interactive model.",
+    "hint2d": "Click, or press Enter on a highlighted area, to describe what you notice.",
+    "hint3d": "The model turns on its own and pauses when your cursor is on it. Drag to rotate, scroll or pinch to zoom, then click an area.",
+    "hoverPrefix": "Area:",
+    "hoverEmpty": "Hover over the model to see area names",
+    "listTitle": "Or choose from the list",
+    "note": "Educational use only. These models are simplified illustrations and do not show a real person.",
+    "noWebgl": "3D is not available on this device or browser. The 2D model works the same way.",
+    "loading3d": "Loading 3D model…",
+    "error3d": "The 3D model could not be loaded on this device.",
+    "use2d": "Use 2D model",
+    "stageAria": "Interactive model"
+  },
+  "dialog": {
+    "heading": "Tell us what you notice",
+    "close": "Close ✕",
+    "kicker": "DESCRIBE THE PROBLEM",
+    "areaLabel": "Selected area",
+    "textLabel": "What are you noticing?",
+    "textPlaceholder": "For example: itchy red patches that started two weeks ago…",
+    "enterHint": "Press Enter to submit · Shift+Enter for a new line",
+    "symptomsLegend": "Tick anything that applies",
+    "durationLabel": "How long has it been there?",
+    "durationPlaceholder": "Select a timeframe",
+    "durations": [
+      "In the last few days",
+      "In the last few weeks",
+      "For months or longer",
+      "Not sure"
+    ],
+    "warning": "Please describe the problem or tick at least one symptom.",
+    "submit": "See educational possibilities",
+    "cancel": "Cancel",
+    "resultKicker": "EDUCATIONAL RESULTS",
+    "resultTitle": "Topics you could explore",
+    "resultIntro": "These topics relate to the words and symptoms you shared. They are not a diagnosis and are not ranked by likelihood. Many conditions overlap in appearance; only an appropriate clinical assessment can clarify your concern.",
+    "youShared": "What you shared",
+    "noMatch": "Nothing in our library matched closely. That is common, because many conditions look alike. Browse the full library or discuss it with a dermatologist.",
+    "readGuide": "Read guide",
+    "browse": "Browse all guides",
+    "edit": "Edit answers",
+    "another": "Choose another area",
+    "book": "Book a Consultation",
+    "urgent": "Please seek prompt medical advice for painful inflammation, pus, rapidly spreading symptoms, bleeding, or rapid hair loss. If symptoms are severe or you feel unwell, seek urgent care.",
+    "context": "Your answers are a reflection aid only. They have not been used to identify a condition or calculate a probability."
+  },
+  "modes": {
+    "skin": {
+      "title": "Skin explorer",
+      "viewBox": "0 0 200 424",
+      "allRegion": {
+        "id": "all",
+        "label": "Whole body / several areas",
+        "hint": "Use this when the concern is widespread or in more than one place."
+      },
+      "regions": [
+        { "id": "face", "label": "Face & head", "hint": "Forehead, cheeks, nose, chin, ears" },
+        { "id": "neck", "label": "Neck", "hint": "Front and sides of the neck" },
+        { "id": "chest", "label": "Chest", "hint": "Chest and upper front of the body" },
+        { "id": "abdomen", "label": "Abdomen", "hint": "Stomach area and waist" },
+        { "id": "upper-back", "label": "Upper back", "hint": "Shoulder blades and upper back" },
+        { "id": "lower-back", "label": "Lower back", "hint": "Lower back and waist at the back" },
+        { "id": "arms", "label": "Arms & shoulders", "hint": "Shoulders, upper arms, elbows, forearms" },
+        { "id": "hands", "label": "Hands & nails", "hint": "Palms, back of hands, fingers, nails" },
+        { "id": "thighs", "label": "Thighs & hips", "hint": "Hips, upper legs, groin folds" },
+        { "id": "lower-legs", "label": "Lower legs & knees", "hint": "Knees, shins, calves, ankles" },
+        { "id": "feet", "label": "Feet & soles", "hint": "Soles, toes, between the toes" }
+      ],
+      "symptoms": [
+        { "key": "itching", "label": "Itching" },
+        { "key": "redness", "label": "Redness" },
+        { "key": "dry", "label": "Dryness or flaking" },
+        { "key": "bumps", "label": "Pimples or bumps" },
+        { "key": "dark", "label": "Dark patches" },
+        { "key": "light", "label": "Light or white patches" },
+        { "key": "scaly", "label": "Thick or scaly patches" },
+        { "key": "pain", "label": "Pain or tenderness" },
+        { "key": "pus", "label": "Pus or discharge" },
+        { "key": "swelling", "label": "Swelling" },
+        { "key": "spreading", "label": "Spreading quickly" },
+        { "key": "blisters", "label": "Blisters" }
+      ],
+      "views": {
+        "front": {
+          "zones": [
+            { "region": "face", "shapes": [{ "tag": "ellipse", "cx": 100, "cy": 38, "rx": 24, "ry": 28 }] },
+            { "region": "neck", "shapes": [{ "tag": "rect", "x": 91, "y": 64, "width": 18, "height": 20, "rx": 6 }] },
+            { "region": "chest", "shapes": [{ "tag": "rect", "x": 66, "y": 82, "width": 68, "height": 58, "rx": 16 }] },
+            { "region": "abdomen", "shapes": [{ "tag": "rect", "x": 70, "y": 142, "width": 60, "height": 50, "rx": 14 }] },
+            {
+              "region": "arms",
+              "shapes": [
+                { "tag": "rect", "x": 44, "y": 88, "width": 18, "height": 90, "rx": 9 },
+                { "tag": "rect", "x": 138, "y": 88, "width": 18, "height": 90, "rx": 9 }
+              ]
+            },
+            {
+              "region": "hands",
+              "shapes": [
+                { "tag": "ellipse", "cx": 53, "cy": 192, "rx": 9, "ry": 13 },
+                { "tag": "ellipse", "cx": 147, "cy": 192, "rx": 9, "ry": 13 }
+              ]
+            },
+            {
+              "region": "thighs",
+              "shapes": [
+                { "tag": "rect", "x": 72, "y": 194, "width": 26, "height": 94, "rx": 12 },
+                { "tag": "rect", "x": 102, "y": 194, "width": 26, "height": 94, "rx": 12 }
+              ]
+            },
+            {
+              "region": "lower-legs",
+              "shapes": [
+                { "tag": "rect", "x": 74, "y": 292, "width": 22, "height": 96, "rx": 10 },
+                { "tag": "rect", "x": 104, "y": 292, "width": 22, "height": 96, "rx": 10 }
+              ]
+            },
+            {
+              "region": "feet",
+              "shapes": [
+                { "tag": "ellipse", "cx": 82, "cy": 403, "rx": 15, "ry": 9 },
+                { "tag": "ellipse", "cx": 118, "cy": 403, "rx": 15, "ry": 9 }
+              ]
+            }
+          ]
+        },
+        "back": {
+          "zones": [
+            { "region": "face", "shapes": [{ "tag": "ellipse", "cx": 100, "cy": 38, "rx": 24, "ry": 28 }] },
+            { "region": "neck", "shapes": [{ "tag": "rect", "x": 91, "y": 64, "width": 18, "height": 20, "rx": 6 }] },
+            { "region": "upper-back", "shapes": [{ "tag": "rect", "x": 66, "y": 82, "width": 68, "height": 58, "rx": 16 }] },
+            { "region": "lower-back", "shapes": [{ "tag": "rect", "x": 70, "y": 142, "width": 60, "height": 50, "rx": 14 }] },
+            {
+              "region": "arms",
+              "shapes": [
+                { "tag": "rect", "x": 44, "y": 88, "width": 18, "height": 90, "rx": 9 },
+                { "tag": "rect", "x": 138, "y": 88, "width": 18, "height": 90, "rx": 9 }
+              ]
+            },
+            {
+              "region": "hands",
+              "shapes": [
+                { "tag": "ellipse", "cx": 53, "cy": 192, "rx": 9, "ry": 13 },
+                { "tag": "ellipse", "cx": 147, "cy": 192, "rx": 9, "ry": 13 }
+              ]
+            },
+            {
+              "region": "thighs",
+              "shapes": [
+                { "tag": "rect", "x": 72, "y": 194, "width": 26, "height": 94, "rx": 12 },
+                { "tag": "rect", "x": 102, "y": 194, "width": 26, "height": 94, "rx": 12 }
+              ]
+            },
+            {
+              "region": "lower-legs",
+              "shapes": [
+                { "tag": "rect", "x": 74, "y": 292, "width": 22, "height": 96, "rx": 10 },
+                { "tag": "rect", "x": 104, "y": 292, "width": 22, "height": 96, "rx": 10 }
+              ]
+            },
+            {
+              "region": "feet",
+              "shapes": [
+                { "tag": "ellipse", "cx": 82, "cy": 403, "rx": 15, "ry": 9 },
+                { "tag": "ellipse", "cx": 118, "cy": 403, "rx": 15, "ry": 9 }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "face": {
+      "title": "Face explorer",
+      "viewBox": "0 0 300 360",
+      "allRegion": {
+        "id": "all",
+        "label": "Whole face / several areas",
+        "hint": "Use this when the concern is spread across the face or in more than one place."
+      },
+      "regions": [
+        { "id": "forehead", "label": "Forehead", "hint": "Forehead and the edge of the hairline" },
+        { "id": "eyes", "label": "Eyes & eyebrows", "hint": "Eyelids, under-eye area, eyebrows" },
+        { "id": "nose", "label": "Nose", "hint": "Bridge, tip and sides of the nose" },
+        { "id": "cheeks", "label": "Cheeks", "hint": "Cheeks and cheekbones" },
+        { "id": "mouth", "label": "Lips & mouth area", "hint": "Lips and the skin around the mouth" },
+        { "id": "chin", "label": "Chin & jawline", "hint": "Chin, jaw and lower face" },
+        { "id": "ears", "label": "Ears", "hint": "Outer ear and the skin behind the ears" }
+      ],
+      "symptoms": [
+        { "key": "bumps", "label": "Pimples or bumps" },
+        { "key": "blackheads", "label": "Blackheads or whiteheads" },
+        { "key": "oily", "label": "Oily skin" },
+        { "key": "scars", "label": "Acne marks or scars" },
+        { "key": "redness", "label": "Redness" },
+        { "key": "flushing", "label": "Flushing or burning" },
+        { "key": "dark", "label": "Dark patches" },
+        { "key": "light", "label": "Light or white patches" },
+        { "key": "dry", "label": "Dryness or flaking" },
+        { "key": "scaly", "label": "Thick or scaly patches" },
+        { "key": "itching", "label": "Itching" },
+        { "key": "swelling", "label": "Swelling" },
+        { "key": "pain", "label": "Pain or tenderness" },
+        { "key": "pus", "label": "Pus or discharge" },
+        { "key": "spreading", "label": "Spreading quickly" }
+      ],
+      "views": {
+        "front": {
+          "clip": [
+            {
+              "tag": "path",
+              "d": "M150 45 C205 45 236 95 236 160 C236 225 206 296 150 318 C94 296 64 225 64 160 C64 95 95 45 150 45 Z"
+            },
+            { "tag": "ellipse", "cx": 62, "cy": 175, "rx": 13, "ry": 28 },
+            { "tag": "ellipse", "cx": 238, "cy": 175, "rx": 13, "ry": 28 }
+          ],
+          "decor": [{ "tag": "rect", "x": 118, "y": 296, "width": 64, "height": 56, "rx": 10 }],
+          "zones": [
+            { "region": "forehead", "shapes": [{ "tag": "rect", "x": 0, "y": 0, "width": 300, "height": 112 }] },
+            { "region": "chin", "shapes": [{ "tag": "rect", "x": 0, "y": 240, "width": 300, "height": 120 }] },
+            {
+              "region": "cheeks",
+              "shapes": [
+                { "tag": "ellipse", "cx": 100, "cy": 200, "rx": 40, "ry": 44 },
+                { "tag": "ellipse", "cx": 200, "cy": 200, "rx": 40, "ry": 44 }
+              ]
+            },
+            {
+              "region": "eyes",
+              "shapes": [
+                { "tag": "ellipse", "cx": 112, "cy": 135, "rx": 38, "ry": 22 },
+                { "tag": "ellipse", "cx": 188, "cy": 135, "rx": 38, "ry": 22 }
+              ]
+            },
+            { "region": "nose", "shapes": [{ "tag": "ellipse", "cx": 150, "cy": 185, "rx": 24, "ry": 42 }] },
+            { "region": "mouth", "shapes": [{ "tag": "ellipse", "cx": 150, "cy": 252, "rx": 46, "ry": 22 }] },
+            {
+              "region": "ears",
+              "shapes": [
+                { "tag": "ellipse", "cx": 62, "cy": 175, "rx": 13, "ry": 28 },
+                { "tag": "ellipse", "cx": 238, "cy": 175, "rx": 13, "ry": 28 }
+              ]
+            }
+          ],
+          "outline": [
+            {
+              "tag": "path",
+              "d": "M150 45 C205 45 236 95 236 160 C236 225 206 296 150 318 C94 296 64 225 64 160 C64 95 95 45 150 45 Z"
+            },
+            { "tag": "path", "d": "M82 120 Q112 104 138 118" },
+            { "tag": "path", "d": "M162 118 Q188 104 218 120" },
+            { "tag": "path", "d": "M88 140 Q112 126 136 140 Q112 152 88 140 Z" },
+            { "tag": "path", "d": "M164 140 Q188 126 212 140 Q188 152 164 140 Z" },
+            { "tag": "path", "d": "M150 138 L150 190 M132 206 Q150 220 168 206" },
+            { "tag": "path", "d": "M118 252 Q150 240 182 252 Q150 276 118 252 Z M118 252 Q150 258 182 252" }
+          ]
+        }
+      }
+    },
+    "hair": {
+      "title": "Hair & scalp explorer",
+      "viewBox": "0 0 300 300",
+      "allRegion": {
+        "id": "all",
+        "label": "Whole scalp / hair strands",
+        "hint": "Use this for dandruff, breakage, or changes across the whole head."
+      },
+      "regions": [
+        { "id": "hairline", "label": "Front hairline", "hint": "Forehead edge of the hair, receding corners" },
+        { "id": "mid-scalp", "label": "Mid-scalp & parting", "hint": "The part line and the area behind the hairline" },
+        { "id": "crown", "label": "Crown (top of head)", "hint": "The highest point and swirl of the head" },
+        { "id": "sides", "label": "Temples & sides", "hint": "Temples, above the ears, sides of the head" },
+        { "id": "back", "label": "Back of head & nape", "hint": "Back of the scalp and the hairline at the neck" }
+      ],
+      "symptoms": [
+        { "key": "thinning", "label": "Thinning or widening part" },
+        { "key": "shedding", "label": "Increased shedding" },
+        { "key": "patchy", "label": "Patchy hair loss" },
+        { "key": "flakes", "label": "Flakes or dandruff" },
+        { "key": "itching", "label": "Itching" },
+        { "key": "pain", "label": "Burning or tenderness" },
+        { "key": "breakage", "label": "Breakage or split ends" },
+        { "key": "redness", "label": "Redness" },
+        { "key": "scaly", "label": "Thick scaly patches" },
+        { "key": "rapid", "label": "Rapid hair loss" },
+        { "key": "pus", "label": "Pus or crusting" }
+      ],
+      "views": {
+        "top": {
+          "clip": { "tag": "ellipse", "cx": 150, "cy": 150, "rx": 100, "ry": 120 },
+          "decor": [
+            { "tag": "ellipse", "cx": 46, "cy": 150, "rx": 11, "ry": 24 },
+            { "tag": "ellipse", "cx": 254, "cy": 150, "rx": 11, "ry": 24 },
+            { "tag": "path", "d": "M139 32 L150 18 L161 32 Z" }
+          ],
+          "zones": [
+            { "region": "hairline", "shapes": [{ "tag": "rect", "x": 0, "y": 0, "width": 300, "height": 95 }] },
+            {
+              "region": "sides",
+              "shapes": [
+                { "tag": "rect", "x": 0, "y": 95, "width": 70, "height": 130 },
+                { "tag": "rect", "x": 230, "y": 95, "width": 70, "height": 130 }
+              ]
+            },
+            { "region": "mid-scalp", "shapes": [{ "tag": "rect", "x": 70, "y": 95, "width": 160, "height": 60 }] },
+            { "region": "back", "shapes": [{ "tag": "rect", "x": 70, "y": 155, "width": 160, "height": 145 }] },
+            { "region": "crown", "shapes": [{ "tag": "ellipse", "cx": 150, "cy": 165, "rx": 48, "ry": 46 }] }
+          ],
+          "outline": [{ "tag": "ellipse", "cx": 150, "cy": 150, "rx": 100, "ry": 120 }],
+          "labels": [
+            { "x": 150, "y": 11, "text": "FRONT" },
+            { "x": 150, "y": 294, "text": "BACK" }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,223 @@
+{
+  "detailLabels": [
+    { "key": "what", "label": "What is it?" },
+    { "key": "notice", "label": "What you may notice:" },
+    { "key": "why", "label": "Why it can happen:" },
+    { "key": "similar", "label": "Conditions that may look similar:" },
+    { "key": "treatment", "label": "General treatment approaches:" },
+    { "key": "next", "label": "What to do next:" },
+    { "key": "when", "label": "When to see a dermatologist:" }
+  ],
+  "conditions": [
+    {
+      "id": "acne",
+      "title": "Acne",
+      "keywords": "pimples spots breakouts scars",
+      "details": {
+        "what": "Acne is a common condition involving hair follicles and oil glands.",
+        "notice": "Blackheads, whiteheads, inflamed bumps, or lingering marks.",
+        "why": "Oil production, clogged follicles, inflammation, and hormonal changes may contribute.",
+        "similar": "Rosacea, folliculitis, and other facial bumps.",
+        "treatment": "Gentle skin care and clinician-selected topical, oral, or procedural options.",
+        "next": "Note your routine and avoid picking; ask about suitable care for your skin.",
+        "when": "If acne is painful, scarring, persistent, or affecting your wellbeing."
+      }
+    },
+    {
+      "id": "eczema",
+      "title": "Eczema",
+      "keywords": "itch dry rash redness",
+      "details": {
+        "what": "Eczema describes inflammatory skin conditions that often affect the skin barrier.",
+        "notice": "Itch, dryness, patches of irritation, or changes in skin texture.",
+        "why": "Skin-barrier differences and environmental triggers can play a role.",
+        "similar": "Contact dermatitis, psoriasis, and fungal rashes.",
+        "treatment": "Moisturizing, trigger review, and clinician-advised anti-inflammatory care.",
+        "next": "Keep track of products and situations that seem to irritate your skin.",
+        "when": "If symptoms persist, disrupt sleep, become painful, or show signs of infection."
+      }
+    },
+    {
+      "id": "psoriasis",
+      "title": "Psoriasis",
+      "keywords": "scale patches flaking",
+      "details": {
+        "what": "Psoriasis is an inflammatory condition that can affect skin and sometimes nails or joints.",
+        "notice": "Well-defined patches with scale; appearances vary across skin tones.",
+        "why": "Immune activity and inherited factors may contribute.",
+        "similar": "Eczema, seborrheic dermatitis, or fungal conditions.",
+        "treatment": "A clinician may discuss topical care, light therapy, or other treatments.",
+        "next": "Note affected areas and mention any joint discomfort at a consultation.",
+        "when": "If patches spread, are uncomfortable, or joint symptoms occur."
+      }
+    },
+    {
+      "id": "rosacea",
+      "title": "Rosacea",
+      "keywords": "face flushing redness",
+      "details": {
+        "what": "Rosacea is a recurring inflammatory condition commonly affecting the central face.",
+        "notice": "Flushing, persistent color changes, sensitivity, or bumps.",
+        "why": "Multiple factors may be involved; individual triggers can vary.",
+        "similar": "Acne, contact irritation, and other facial rashes.",
+        "treatment": "Gentle care, trigger awareness, and clinician-selected treatments.",
+        "next": "Note recurring triggers and mention any eye discomfort.",
+        "when": "If facial changes persist or your eyes become irritated."
+      }
+    },
+    {
+      "id": "contact",
+      "title": "Contact Dermatitis",
+      "keywords": "contact dermatitis irritation rash allergy",
+      "details": {
+        "what": "Contact dermatitis is skin inflammation after contact with an irritant or allergen.",
+        "notice": "Itching, redness or color change, dryness, or a rash where contact occurred.",
+        "why": "Products, metals, fragrances, or workplace exposures may be involved.",
+        "similar": "Eczema, fungal rashes, and other inflammatory conditions.",
+        "treatment": "Identifying exposures, gentle care, and clinician-advised treatment.",
+        "next": "Make a list of recently used products and possible exposures.",
+        "when": "If a reaction is severe, recurrent, widespread, or difficult to explain."
+      }
+    },
+    {
+      "id": "seborrheic",
+      "title": "Seborrheic Dermatitis",
+      "keywords": "seborrheic dermatitis itchy scalp flakes",
+      "details": {
+        "what": "Seborrheic dermatitis is a recurring inflammatory condition often affecting oil-rich areas.",
+        "notice": "Flakes, itch, or irritated areas on the scalp, face, or around the ears.",
+        "why": "Skin inflammation and responses to naturally present scalp yeast may contribute.",
+        "similar": "Dandruff, scalp psoriasis, eczema, or fungal infection.",
+        "treatment": "Medicated cleansing and other treatments selected by a clinician.",
+        "next": "Note which areas are affected and how often symptoms return.",
+        "when": "If irritation persists, spreads, or does not improve with appropriate care."
+      }
+    },
+    {
+      "id": "vitiligo",
+      "title": "Vitiligo",
+      "keywords": "light white pigmentation patches",
+      "details": {
+        "what": "Vitiligo involves loss of pigment in areas of skin.",
+        "notice": "Light or white patches that can appear in different locations.",
+        "why": "Immune-related processes may affect pigment-producing cells.",
+        "similar": "Other causes of lighter patches, including post-inflammatory changes.",
+        "treatment": "Sun protection and clinician-guided options depending on the individual.",
+        "next": "Record when and where changes appeared for a consultation.",
+        "when": "If new patches appear or existing patches change."
+      }
+    },
+    {
+      "id": "melasma",
+      "title": "Melasma",
+      "keywords": "dark spots pigmentation uneven skin tone",
+      "details": {
+        "what": "Melasma is a form of increased skin pigmentation, often on the face.",
+        "notice": "Gradual patches of darker color, sometimes in a symmetric pattern.",
+        "why": "Sun exposure and hormonal factors may contribute.",
+        "similar": "Post-inflammatory pigmentation and other pigment changes.",
+        "treatment": "Consistent sun protection and clinician-guided skin care or procedures.",
+        "next": "Discuss your skin-care routine and sun exposure with a professional.",
+        "when": "If pigmentation is new, changing, or concerning to you."
+      }
+    },
+    {
+      "id": "pattern",
+      "title": "Pattern Hair Loss",
+      "keywords": "pattern hair loss thinning shedding",
+      "details": {
+        "what": "Pattern hair loss is a gradual change in hair density with characteristic patterns.",
+        "notice": "A widening part, reduced volume, or gradual thinning at the hairline or crown.",
+        "why": "Genetic and hormonal factors can contribute.",
+        "similar": "Telogen effluvium, breakage, and other forms of hair loss.",
+        "treatment": "A clinician may discuss established medical or procedural options.",
+        "next": "Note the timeline and any family history before a consultation.",
+        "when": "If thinning progresses or you are unsure what is causing it."
+      }
+    },
+    {
+      "id": "telogen",
+      "title": "Telogen Effluvium",
+      "keywords": "telogen effluvium diffuse hair shedding",
+      "details": {
+        "what": "Telogen effluvium is a pattern of increased hair shedding.",
+        "notice": "More hairs than usual shedding across the scalp.",
+        "why": "Physical stress, illness, or other changes may precede shedding.",
+        "similar": "Pattern hair loss and other causes of diffuse shedding.",
+        "treatment": "Assessment of possible contributing factors and supportive hair care.",
+        "next": "Note when shedding began and any major changes beforehand.",
+        "when": "If shedding is rapid, prolonged, or accompanied by scalp symptoms."
+      }
+    },
+    {
+      "id": "areata",
+      "title": "Alopecia Areata",
+      "keywords": "alopecia areata patchy hair loss",
+      "details": {
+        "what": "Alopecia areata is an immune-related form of hair loss.",
+        "notice": "One or more areas of reduced hair, sometimes appearing suddenly.",
+        "why": "Immune activity affects hair follicles; the course varies between people.",
+        "similar": "Fungal scalp infection, traction, or other patchy hair loss.",
+        "treatment": "A dermatologist can discuss observation or suitable treatment options.",
+        "next": "Arrange an assessment rather than assuming the cause of a patch.",
+        "when": "For new or rapidly changing patches of hair loss."
+      }
+    },
+    {
+      "id": "dandruff",
+      "title": "Dandruff",
+      "keywords": "dandruff scalp flakes itchy",
+      "details": {
+        "what": "Dandruff describes visible scalp flaking, often with mild irritation.",
+        "notice": "Loose flakes and sometimes an itchy scalp.",
+        "why": "Several scalp processes can contribute to flaking.",
+        "similar": "Seborrheic dermatitis, scalp psoriasis, or irritation.",
+        "treatment": "Appropriate scalp cleansing or clinician-recommended products.",
+        "next": "Note the severity and whether irritation or redness is present.",
+        "when": "If flaking is persistent, painful, or accompanied by hair loss."
+      }
+    },
+    {
+      "id": "scalp-psoriasis",
+      "title": "Scalp Psoriasis",
+      "keywords": "scalp psoriasis scale flakes",
+      "details": {
+        "what": "Scalp psoriasis is psoriasis affecting the scalp.",
+        "notice": "Thick scale, itch, and defined areas of inflammation.",
+        "why": "Immune-related inflammation influences skin turnover.",
+        "similar": "Dandruff, seborrheic dermatitis, or other scalp conditions.",
+        "treatment": "Clinician-guided scalp treatments and follow-up when needed.",
+        "next": "Avoid forcefully removing scales and discuss persistent symptoms.",
+        "when": "If scalp symptoms are painful, persistent, or extensive."
+      }
+    },
+    {
+      "id": "tinea",
+      "title": "Tinea Capitis",
+      "keywords": "tinea capitis scalp fungal patchy hair loss",
+      "details": {
+        "what": "Tinea capitis is a fungal infection of the scalp that needs professional assessment.",
+        "notice": "Scaly areas, broken hairs, or areas of reduced hair; presentations vary.",
+        "why": "Certain fungi can spread through close contact or shared items.",
+        "similar": "Scalp psoriasis, seborrheic dermatitis, or alopecia areata.",
+        "treatment": "A clinician determines whether testing and prescription treatment are needed.",
+        "next": "Arrange an evaluation and avoid sharing combs or headwear until assessed.",
+        "when": "Promptly for suspected infection, particularly with pain, pus, or hair loss."
+      }
+    },
+    {
+      "id": "breakage",
+      "title": "Hair Breakage",
+      "keywords": "hair breakage brittle split hair",
+      "details": {
+        "what": "Hair breakage happens when strands snap along their length rather than shed from the root.",
+        "notice": "Short uneven strands, split ends, or reduced length retention.",
+        "why": "Heat, chemical processing, tension, and other factors may weaken strands.",
+        "similar": "Hair shedding or other forms of hair loss.",
+        "treatment": "Gentler handling and addressing contributing practices or conditions.",
+        "next": "Review styling habits and note whether hair is shedding or snapping.",
+        "when": "If breakage is substantial, sudden, or occurs with scalp changes."
+      }
+    }
+  ]
+}

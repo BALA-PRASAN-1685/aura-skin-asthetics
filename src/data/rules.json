@@ -1,0 +1,174 @@
+{
+  "urgent": {
+    "symptoms": {
+      "skin": ["pain", "pus", "swelling", "spreading"],
+      "face": ["pain", "pus", "swelling", "spreading"],
+      "hair": ["pain", "pus", "rapid"]
+    },
+    "keywords": [
+      "pus",
+      "bleeding",
+      "bleed",
+      "oozing",
+      "spreading",
+      "spread",
+      "fever",
+      "severe",
+      "swollen",
+      "swelling",
+      "infect",
+      "rapid",
+      "sudden"
+    ]
+  },
+  "skin": [
+    {
+      "id": "acne",
+      "regions": { "face": 3, "chest": 2, "upper-back": 3, "neck": 1, "lower-back": 1 },
+      "keywords": { "pimple": 3, "acne": 3, "blackhead": 3, "whitehead": 3, "zit": 2, "breakout": 2, "pustule": 2, "bump": 1, "scar": 1, "oily": 1 },
+      "symptoms": { "bumps": 3, "pain": 1 }
+    },
+    {
+      "id": "eczema",
+      "regions": { "arms": 2, "hands": 2, "neck": 1, "lower-legs": 1, "thighs": 1, "face": 1 },
+      "keywords": { "itch": 2, "dry": 2, "eczema": 3, "cracked": 2, "scratch": 2, "weepy": 1, "rash": 1 },
+      "symptoms": { "itching": 2, "dry": 2, "redness": 1 }
+    },
+    {
+      "id": "psoriasis",
+      "regions": { "arms": 1, "lower-legs": 1, "lower-back": 1, "hands": 1 },
+      "keywords": { "scale": 2, "scaly": 2, "silvery": 3, "plaque": 2, "psoriasis": 3, "flaky": 1, "elbow": 2, "knee": 2 },
+      "symptoms": { "scaly": 3, "redness": 1, "dry": 1 }
+    },
+    {
+      "id": "rosacea",
+      "regions": { "face": 3 },
+      "keywords": { "flush": 3, "rosacea": 3, "cheek": 1, "nose": 1, "sensitive": 1, "burning": 1, "spicy": 1, "visible veins": 2, "small veins": 2 },
+      "symptoms": { "redness": 2, "bumps": 1 }
+    },
+    {
+      "id": "contact",
+      "regions": { "hands": 2, "arms": 1, "neck": 2, "face": 1, "feet": 1 },
+      "keywords": { "soap": 2, "perfume": 2, "fragrance": 2, "jewel": 2, "watch": 2, "new product": 3, "allerg": 3, "detergent": 2, "glove": 2, "nickel": 2, "reaction": 2, "sanitizer": 2, "cosmetic": 1, "cream": 1, "rash": 1 },
+      "symptoms": { "itching": 1, "redness": 1, "blisters": 2, "dry": 1 }
+    },
+    {
+      "id": "seborrheic",
+      "regions": { "face": 2, "chest": 2, "upper-back": 1, "neck": 1 },
+      "keywords": { "greasy": 3, "oily": 2, "flake": 2, "flaky": 2, "dandruff": 2, "eyebrow": 2, "ears": 1, "around nose": 2, "yellow": 1, "seborrh": 3 },
+      "symptoms": { "dry": 1, "redness": 1, "itching": 1 }
+    },
+    {
+      "id": "vitiligo",
+      "regions": { "hands": 2, "face": 1, "feet": 2, "arms": 1, "lower-legs": 1 },
+      "keywords": { "white": 2, "pale": 2, "lighter": 2, "depigment": 3, "vitiligo": 4, "milky": 2, "losing colour": 3, "losing color": 3, "lost colour": 3, "lost color": 3, "light patch": 3 },
+      "symptoms": { "light": 4 }
+    },
+    {
+      "id": "melasma",
+      "regions": { "face": 4 },
+      "keywords": { "dark": 2, "pigment": 3, "brown": 2, "melasma": 4, "uneven": 2, "pregnan": 2, "upper lip": 2, "spot": 1, "tan": 1, "sun": 1, "hormon": 1, "cheek": 1, "forehead": 1 },
+      "symptoms": { "dark": 4 }
+    }
+  ],
+  "face": [
+    {
+      "id": "acne",
+      "regions": { "forehead": 3, "cheeks": 3, "chin": 3, "nose": 2, "mouth": 1 },
+      "keywords": { "pimple": 3, "acne": 3, "blackhead": 3, "whitehead": 3, "zit": 2, "breakout": 2, "pustule": 2, "bump": 1, "scar": 1, "oily": 1, "period": 1 },
+      "symptoms": { "bumps": 3, "blackheads": 3, "oily": 1, "scars": 1, "pain": 1 }
+    },
+    {
+      "id": "rosacea",
+      "regions": { "cheeks": 3, "nose": 3, "forehead": 1, "chin": 1 },
+      "keywords": { "flush": 3, "rosacea": 3, "cheek": 1, "nose": 1, "sensitive": 1, "burning": 1, "spicy": 1, "visible veins": 2, "small veins": 2, "blush": 2 },
+      "symptoms": { "redness": 2, "flushing": 3, "bumps": 1 }
+    },
+    {
+      "id": "melasma",
+      "regions": { "cheeks": 4, "forehead": 3, "mouth": 2, "nose": 1 },
+      "keywords": { "dark": 2, "pigment": 3, "brown": 2, "melasma": 4, "uneven": 2, "pregnan": 2, "upper lip": 2, "spot": 1, "tan": 1, "sun": 1, "hormon": 1, "mask": 1 },
+      "symptoms": { "dark": 4 }
+    },
+    {
+      "id": "eczema",
+      "regions": { "eyes": 3, "cheeks": 2, "mouth": 1, "ears": 1, "forehead": 1 },
+      "keywords": { "itch": 2, "dry": 2, "eczema": 3, "cracked": 2, "scratch": 2, "eyelid": 2, "rash": 1 },
+      "symptoms": { "itching": 2, "dry": 2, "redness": 1 }
+    },
+    {
+      "id": "contact",
+      "regions": { "eyes": 2, "mouth": 2, "cheeks": 1, "ears": 1, "nose": 1 },
+      "keywords": { "new product": 3, "allerg": 3, "perfume": 2, "fragrance": 2, "cosmetic": 2, "makeup": 2, "cream": 1, "sunscreen": 1, "hair dye": 3, "earring": 2, "nickel": 2, "mask": 1, "reaction": 2, "rash": 1 },
+      "symptoms": { "itching": 1, "redness": 1, "swelling": 1, "dry": 1 }
+    },
+    {
+      "id": "seborrheic",
+      "regions": { "nose": 3, "eyes": 2, "ears": 2, "forehead": 2, "chin": 1, "cheeks": 1 },
+      "keywords": { "greasy": 3, "oily": 2, "flake": 2, "flaky": 2, "dandruff": 2, "eyebrow": 2, "ears": 1, "around nose": 2, "yellow": 1, "seborrh": 3 },
+      "symptoms": { "dry": 1, "redness": 1, "itching": 1, "oily": 2 }
+    },
+    {
+      "id": "vitiligo",
+      "regions": { "mouth": 2, "eyes": 2, "chin": 1, "cheeks": 1 },
+      "keywords": { "white": 2, "pale": 2, "lighter": 2, "depigment": 3, "vitiligo": 4, "milky": 2, "losing colour": 3, "losing color": 3, "lost colour": 3, "lost color": 3, "light patch": 3 },
+      "symptoms": { "light": 4 }
+    },
+    {
+      "id": "psoriasis",
+      "regions": { "forehead": 2, "ears": 1, "eyes": 1 },
+      "keywords": { "scale": 2, "scaly": 2, "silvery": 3, "plaque": 2, "psoriasis": 3, "flaky": 1, "hairline": 2 },
+      "symptoms": { "scaly": 3, "redness": 1, "dry": 1 }
+    }
+  ],
+  "hair": [
+    {
+      "id": "pattern",
+      "regions": { "hairline": 3, "mid-scalp": 3, "crown": 3, "sides": 1 },
+      "keywords": { "thin": 3, "receding": 3, "widening": 3, "bald": 2, "hairline": 2, "density": 2, "parting": 2, "volume": 1, "family": 1 },
+      "symptoms": { "thinning": 3 }
+    },
+    {
+      "id": "telogen",
+      "regions": { "mid-scalp": 1, "crown": 1, "all": 1 },
+      "keywords": { "shedding": 3, "falling": 2, "handful": 3, "stress": 2, "illness": 2, "fever": 2, "delivery": 2, "postpartum": 3, "diet": 1, "drain": 2, "pillow": 2, "comb": 1 },
+      "symptoms": { "shedding": 3, "rapid": 1 }
+    },
+    {
+      "id": "areata",
+      "regions": { "hairline": 1, "mid-scalp": 1, "crown": 1, "sides": 1, "back": 1 },
+      "keywords": { "patch": 3, "circle": 2, "round": 1, "coin": 3, "smooth": 2, "bald spot": 3, "alopecia": 3, "sudden": 1 },
+      "symptoms": { "patchy": 4, "rapid": 1 }
+    },
+    {
+      "id": "dandruff",
+      "regions": { "hairline": 1, "mid-scalp": 1, "crown": 1, "sides": 1, "back": 1, "all": 2 },
+      "keywords": { "dandruff": 3, "flake": 3, "flaking": 3, "itchy": 1, "dry scalp": 2, "white": 1 },
+      "symptoms": { "flakes": 3, "itching": 2 }
+    },
+    {
+      "id": "seborrheic",
+      "regions": { "hairline": 1, "sides": 1, "back": 1, "all": 1 },
+      "keywords": { "greasy": 3, "oily": 2, "yellow": 2, "flake": 2, "eyebrow": 2, "ears": 1, "seborrh": 3, "itchy": 1 },
+      "symptoms": { "flakes": 2, "itching": 1, "redness": 2 }
+    },
+    {
+      "id": "scalp-psoriasis",
+      "regions": { "hairline": 1, "back": 1, "crown": 1, "all": 1 },
+      "keywords": { "thick": 2, "scale": 2, "scaly": 2, "silvery": 3, "plaque": 3, "crust": 2, "psoriasis": 3 },
+      "symptoms": { "scaly": 4, "itching": 1, "redness": 1 }
+    },
+    {
+      "id": "tinea",
+      "regions": { "sides": 1, "back": 1, "crown": 1 },
+      "keywords": { "fungus": 3, "fungal": 3, "ringworm": 4, "broken hair": 3, "black dot": 3, "contagious": 2, "child": 1, "pet": 2, "sharing comb": 3, "scaly": 1 },
+      "symptoms": { "patchy": 1, "scaly": 2, "pus": 2, "itching": 1 }
+    },
+    {
+      "id": "breakage",
+      "regions": { "all": 2, "back": 1 },
+      "keywords": { "break": 3, "breakage": 3, "split": 3, "brittle": 3, "straighten": 2, "heat": 2, "colour": 2, "color": 2, "bleach": 3, "braid": 2, "tight": 2, "rough": 1, "frizz": 1 },
+      "symptoms": { "breakage": 4 }
+    }
+  ]
+}

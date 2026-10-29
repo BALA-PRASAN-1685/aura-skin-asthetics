@@ -1,0 +1,178 @@
+{
+  "logo": {
+    "src": "/logo.svg",
+    "alt": "Aura clinic logo with luminous blue and gold lettering on a dark background"
+  },
+  "header": {
+    "name": "AURA SKIN & AESTHETICS",
+    "homeLabel": "Aura Skin & Aesthetics, home",
+    "nav": [
+      { "label": "Home", "href": "#home" },
+      { "label": "Skin Health", "href": "#skin" },
+      { "label": "Hair & Scalp", "href": "#hair" },
+      { "label": "Explore Conditions", "href": "#conditions" },
+      { "label": "Symptom Checker", "href": "#checker" }
+    ],
+    "mobileNav": [
+      { "label": "Skin Health", "href": "#skin" },
+      { "label": "Hair & Scalp", "href": "#hair" },
+      { "label": "Conditions", "href": "#conditions" },
+      { "label": "Symptom Checker", "href": "#checker" },
+      { "label": "Contact", "href": "#contact" }
+    ],
+    "bookLabel": "Book a Consultation",
+    "bookHref": "#contact"
+  },
+  "hero": {
+    "eyebrow": "NARASARAOPET · SKIN & HAIR EDUCATION",
+    "title": "Understand Your Skin. Care for Your Hair.",
+    "description": "Explore skin and scalp concerns, understand your symptoms, and discover reliable information to help you make informed healthcare decisions.",
+    "searchLabel": "What would you like to explore?",
+    "searchPlaceholder": "Search a skin or hair concern...",
+    "searchButton": "Search",
+    "skinCta": "Explore Skin Health",
+    "bookCta": "Book a Consultation",
+    "trust": "A space for general education, not a substitute for a dermatologist’s assessment.",
+    "artLabel": "Abstract educational illustration inspired by skin and hair anatomy",
+    "artCaption": "Give your skin and hair the care they deserve.",
+    "orbit": [
+      { "src": "/hero/skin-1.svg", "alt": "Soft skin close-up", "x": 23, "y": 26, "size": 12 },
+      { "src": "/hero/skin-2.svg", "alt": "Skin care close-up", "x": 74, "y": 22, "size": 12 },
+      { "src": "/hero/skin-3.svg", "alt": "Healthy skin close-up", "x": 84, "y": 40, "size": 12 },
+      { "src": "/hero/flowers.svg", "alt": "Rose petals", "x": 17, "y": 46, "size": 12 },
+      { "src": "/hero/product.svg", "alt": "Skin care product", "x": 31, "y": 80, "size": 12 }
+    ]
+  },
+  "paths": {
+    "kicker": "START EXPLORING",
+    "title": "Find the right place to begin.",
+    "items": [
+      {
+        "icon": "◌",
+        "title": "Skin Health",
+        "body": "Understand common skin concerns and explore available care.",
+        "href": "#skin",
+        "explorer": "skin"
+      },
+      {
+        "icon": "〰",
+        "title": "Hair & Scalp",
+        "body": "Learn about shedding, scalp comfort, and hair-focused care.",
+        "href": "#hair",
+        "explorer": "hair"
+      },
+      {
+        "icon": "✳",
+        "title": "Explore Conditions",
+        "body": "Browse concise educational guides without self-diagnosing.",
+        "href": "#conditions"
+      }
+    ],
+    "exploreLabel": "Explore →",
+    "popularTitle": "Popular concerns",
+    "chips": [
+      { "label": "Acne", "condition": "acne" },
+      { "label": "Eczema", "condition": "eczema" },
+      { "label": "Pigmentation", "condition": "melasma" },
+      { "label": "Dandruff", "condition": "dandruff" },
+      { "label": "Itchy Scalp", "condition": "seborrheic" },
+      { "label": "Hair Thinning", "condition": "pattern" }
+    ]
+  },
+  "skin": {
+    "kicker": "SKIN HEALTH",
+    "title": "Thoughtful care for skin at every stage.",
+    "description": "A consultation can help clarify your concern and which approaches may be appropriate for you. Services are tailored after an individual assessment.",
+    "cards": [
+      {
+        "title": "Clarity & correction",
+        "text": "Acne and scar treatments · Pigmentation care · Melasma solutions · Uneven skin tone correction",
+        "wide": false
+      },
+      {
+        "title": "Renewal & laser",
+        "text": "Skin boosters · Anti-aging treatments · Laser hair reduction · Laser toning",
+        "wide": false
+      },
+      {
+        "title": "Aesthetic services",
+        "text": "Botox · Fillers · Lip tinting/neutralization · Eyebrow styling · Eyeliner. Suitability, benefits, and risks should be discussed in consultation.",
+        "wide": true
+      }
+    ]
+  },
+  "hair": {
+    "kicker": "HAIR & SCALP",
+    "title": "Look after what grows from the roots.",
+    "description": "Hair and scalp changes can have several causes. Explore common patterns, then speak with a qualified professional about your own situation.",
+    "cards": [
+      {
+        "title": "Hair-focused care",
+        "text": "Hair regrowth treatments · Anti-dandruff therapy · Scalp micropigmentation"
+      },
+      {
+        "title": "A personal approach",
+        "text": "A consultation can consider your history, scalp, hair practices, and goals before discussing next steps."
+      }
+    ]
+  },
+  "conditionsSection": {
+    "kicker": "EDUCATIONAL LIBRARY",
+    "title": "Explore conditions, without jumping to conclusions.",
+    "intro": "Similar symptoms can have different causes. Open a guide to learn what may be worth discussing with a dermatologist.",
+    "emptyMessage": "No matching guides yet. Try a broader term such as skin, scalp, or hair.",
+    "illustrationNote": "AI-generated educational illustrations. Not real patient photographs or diagnostic references. Abstract visuals do not represent every presentation."
+  },
+  "dialog": {
+    "heading": "Condition guide",
+    "closeLabel": "Close ✕",
+    "visualNote": "AI-generated educational illustration. Not a real patient photograph or diagnostic reference.",
+    "reviewNote": "Source/review placeholder: references and clinician review to be added before publication.",
+    "preface": "An educational overview · Not a diagnosis",
+    "contactLabel": "Discuss at a consultation"
+  },
+  "why": {
+    "kicker": "WHY PATIENTS CHOOSE AURA",
+    "title": "A calmer way to take the next step.",
+    "items": [
+      {
+        "title": "Doctor-led guidance",
+        "body": "Discuss concerns with a qualified professional rather than relying on guesswork."
+      },
+      {
+        "title": "Skin and hair focus",
+        "body": "Explore care options for a range of skin, hair, and scalp concerns."
+      },
+      {
+        "title": "Personalized consultation",
+        "body": "Your history and goals can guide a conversation about suitable options."
+      },
+      {
+        "title": "Clear next steps",
+        "body": "Leave with a better understanding of what to ask and consider next."
+      }
+    ]
+  },
+  "contact": {
+    "kicker": "VISIT OR GET IN TOUCH",
+    "title": "Your next conversation starts here.",
+    "intro": "Contact Aura Skin & Aesthetics, also known as Aura Skin & Hair Clinic, to ask about consultation availability.",
+    "callLabel": "Call +91 98663 66394",
+    "phoneHref": "tel:+919866366394",
+    "directionsLabel": "Get Directions",
+    "directionsHref": "https://www.google.com/maps/search/?api=1&query=St%20Anns%20School%20Rd%2C%20Prakash%20Nagar%2C%20Narasaraopet%2C%20Andhra%20Pradesh%20522601",
+    "details": [
+      {
+        "label": "Find us",
+        "value": "St Anns School Rd, Prakash Nagar, Narasaraopet, Andhra Pradesh 522601"
+      },
+      { "label": "General clinic hours", "value": "Monday – Sunday, 9:00 AM – 7:00 PM" },
+      { "label": "Doctor availability", "value": "11:00 AM to 6:00 PM" },
+      { "label": "Phone", "value": "+91 98663 66394" }
+    ]
+  },
+  "footer": {
+    "name": "Aura Skin & Aesthetics · Narasaraopet",
+    "disclaimer": "Educational information only. This website does not provide a diagnosis or replace professional medical advice."
+  }
+}
