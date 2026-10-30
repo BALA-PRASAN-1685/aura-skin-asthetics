@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import data from '../data/explorer.json';
 import { analyze } from '../utils/analyze.js';
+import { assessWithAura, generateAuraImage } from '../utils/auraAi.js';
 import { txt, INK, TEAL } from '../styles';
 
 export default function ProblemDialog({ mode, region, onClose, onOpenGuide }) {
@@ -12,6 +13,11 @@ export default function ProblemDialog({ mode, region, onClose, onOpenGuide }) {
   const [duration, setDuration] = useState('');
   const [warn, setWarn] = useState(false);
   const [result, setResult] = useState(null);
+  const [aiReport, setAiReport] = useState(null);
+  const [aiLoading, setAiLoading] = useState(false);
+  const [imageUrl, setImageUrl] = useState('');
+  const [imageLoading, setImageLoading] = useState(false);
+  const [imageError, setImageError] = useState('');
 
   const rootRef = useRef(null);
   const scrollRef = useRef(null);
@@ -57,6 +63,8 @@ export default function ProblemDialog({ mode, region, onClose, onOpenGuide }) {
   const toggleSymptom = (key) =>
     setSymptoms((cur) => (cur.includes(key) ? cur.filter((k) => k !== key) : [...cur, key]));
 
+  const symptomLabels = symptoms.map((k) => cfg.symptoms.find((s) => s.key === k)?.label).filter(Boolean);
+
   const submit = (e) => {
     e?.preventDefault();
     if (!text.trim() && symptoms.length === 0) {
@@ -64,11 +72,47 @@ export default function ProblemDialog({ mode, region, onClose, onOpenGuide }) {
       return;
     }
     setWarn(false);
-    setResult(analyze({ mode, regionId: region.id, text, symptoms }));
+    const localResult = analyze({
+      mode,
+      regionId: region.id,
+      text,
+      symptoms,
+    });
+    setResult(localResult);
+    setAiReport(null);
+    setImageUrl('');
+    setImageError('');
+    setAiLoading(true);
+    assessWithAura({
+      mode,
+      zone: region.label,
+      symptomsText: text.trim(),
+      symptoms: symptomLabels,
+      duration,
+      matchedConditions: localResult.matches.map((match) => ({
+        id: match.id,
+        title: match.title,
+      })),
+    })
+      .then((report) => setAiReport(report))
+      .catch(() => setAiReport(null))
+      .finally(() => setAiLoading(false));
     scrollRef.current?.scrollTo({ top: 0 });
   };
 
-  const symptomLabels = symptoms.map((k) => cfg.symptoms.find((s) => s.key === k)?.label).filter(Boolean);
+  const generateImage = async () => {
+    if (!aiReport?.imagePrompt) return;
+    setImageLoading(true);
+    setImageError('');
+    try {
+      const url = await generateAuraImage(aiReport.imagePrompt);
+      setImageUrl(url);
+    } catch (error) {
+      setImageError(error.message || 'Image generation failed.');
+    } finally {
+      setImageLoading(false);
+    }
+  };
 
   const browseAll = () => {
     onClose();
@@ -257,6 +301,55 @@ export default function ProblemDialog({ mode, region, onClose, onOpenGuide }) {
               </p>
             )}
 
+            {aiLoading && (
+              <p className="text-[#087d86]" style={txt('rgb(8, 125, 134)', 14)}>
+                Aura is reviewing the details…
+              </p>
+            )}
+
+            {aiReport && (
+              <div className="rounded-2xl border border-[#b4d9d5] bg-[#e9f6f2] p-5 space-y-3">
+                <p className="font-bold uppercase tracking-widest text-[#087d86]" style={txt('rgb(8, 125, 134)', 12)}>
+                  Aura AI pre-check · {aiReport.urgency}
+                </p>
+                <p style={txt(INK, 16)}>{aiReport.summary}</p>
+                {Array.isArray(aiReport.homeCare) && aiReport.homeCare.length > 0 && (
+                  <div>
+                    <p className="font-semibold" style={txt(INK, 14)}>Home care</p>
+                    <ul className="mt-1 list-disc list-inside text-[#53666b]" style={txt('rgb(83, 102, 107)', 14)}>
+                      {aiReport.homeCare.slice(0, 5).map((item) => <li key={item}>{item}</li>)}
+                    </ul>
+                  </div>
+                )}
+                <button
+                  type="button"
+                  onClick={generateImage}
+                  disabled={imageLoading}
+                  className="rounded-full bg-[#087d86] px-5 py-2 text-white disabled:opacity-60"
+                  style={{ background: 'rgb(8, 125, 134)', ...txt('rgb(255, 255, 255)', 15) }}
+                >
+                  {imageLoading ? 'Generating illustration…' : 'Generate educational illustration'}
+                </button>
+                {imageError && (
+                  <p className="text-[#a44a29]" role="alert" style={txt('rgb(164, 74, 41)', 14)}>
+                    {imageError}
+                  </p>
+                )}
+                {imageUrl && (
+                  <>
+                    <img
+                      src={imageUrl}
+                      alt="Educational dermatology illustration generated for this concern"
+                      className="mt-3 max-h-80 w-full rounded-xl object-contain bg-white"
+                    />
+                    <p className="mt-2 text-[#53666b]" style={txt('rgb(83, 102, 107)', 12)}>
+                      Educational illustration only. This image is not a photograph of the patient and is not diagnostic evidence.
+                    </p>
+                  </>
+                )}
+              </div>
+            )}
+
             {result.matches.length === 0 ? (
               <p className="text-[#345159]" style={txt('rgb(52, 81, 89)', 16)}>
                 {dialog.noMatch}
@@ -292,7 +385,12 @@ export default function ProblemDialog({ mode, region, onClose, onOpenGuide }) {
             <div className="flex flex-wrap gap-3 pt-2">
               <button
                 type="button"
-                onClick={() => setResult(null)}
+                onClick={() => {
+                  setResult(null);
+                  setAiReport(null);
+                  setImageUrl('');
+                  setImageError('');
+                }}
                 className="px-5 py-3 rounded-full border border-[#9dbdbb]"
                 style={txt(INK, 16)}
               >
