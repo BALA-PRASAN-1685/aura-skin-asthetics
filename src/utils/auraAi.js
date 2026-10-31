@@ -1,22 +1,35 @@
+const API_BASE =
+  import.meta.env.VITE_API_URL || 'http://localhost:4174';
+
 export async function assessWithAura(input) {
-  const response = await fetch('/api/ai/assess', {
+  const response = await fetch(`${API_BASE}/api/ai/assess`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(input),
   });
+
   const data = await response.json();
-  if (!response.ok) throw new Error(data.error || 'Aura assessment failed.');
+
+  if (!response.ok) {
+    throw new Error(data.error || 'Aura assessment failed.');
+  }
+
   return data;
 }
 
 export async function generateAuraImage(prompt) {
-  const response = await fetch('/api/ai/image', {
+  const response = await fetch(`${API_BASE}/api/ai/image`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ prompt }),
   });
+
   const data = await response.json();
-  if (!response.ok) throw new Error(data.error || 'Aura image generation failed.');
+
+  if (!response.ok) {
+    throw new Error(data.error || 'Aura image generation failed.');
+  }
+
   return data.url;
 }
 
@@ -40,9 +53,16 @@ export function buildLibraryImagePrompt(condition) {
 
 export async function generateLibraryConditionImage(condition) {
   if (!condition?.id || !condition?.title) return null;
-  if (libraryImageCache.has(condition.id)) return libraryImageCache.get(condition.id);
 
-  const imageUrl = await generateAuraImage(buildLibraryImagePrompt(condition));
+  if (libraryImageCache.has(condition.id)) {
+    return libraryImageCache.get(condition.id);
+  }
+
+  const imageUrl = await generateAuraImage(
+    buildLibraryImagePrompt(condition)
+  );
+
   libraryImageCache.set(condition.id, imageUrl);
+
   return imageUrl;
 }
