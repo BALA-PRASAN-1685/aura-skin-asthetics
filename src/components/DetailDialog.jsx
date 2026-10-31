@@ -1,13 +1,34 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import site from '../data/site.json';
 import { conditions, detailLabels } from '../data/conditions.json';
 import { txt, INK, TEAL } from '../styles';
+import { generateLibraryConditionImage } from '../utils/auraAi.js';
 
 export default function DetailDialog({ id, onClose }) {
   const dialogRef = useRef(null);
   const closeRef = useRef(null);
   const condition = conditions.find((c) => c.id === id);
   const { dialog } = site;
+  const [imageUrl, setImageUrl] = useState('');
+  const [imageLoading, setImageLoading] = useState(false);
+
+  useEffect(() => {
+    if (!condition) return undefined;
+    let active = true;
+    setImageUrl('');
+    setImageLoading(true);
+    generateLibraryConditionImage(condition)
+      .then((url) => {
+        if (active) setImageUrl(url || '');
+      })
+      .catch((error) => console.warn(`Library dialog image unavailable for ${condition.title}:`, error.message))
+      .finally(() => {
+        if (active) setImageLoading(false);
+      });
+    return () => {
+      active = false;
+    };
+  }, [condition]);
 
   // Lock page scroll and focus the close button while the dialog is open.
   useEffect(() => {
@@ -72,7 +93,19 @@ export default function DetailDialog({ id, onClose }) {
         </div>
         <div className="p-5 sm:p-8 grid md:grid-cols-[190px_1fr] gap-7">
           <div>
-            <div className="diagram rounded-3xl h-48"></div>
+            {imageUrl ? (
+              <img
+                src={imageUrl}
+                alt={`Educational illustration for ${condition.title}`}
+                className="diagram rounded-3xl h-48 w-full object-cover"
+              />
+            ) : (
+              <div
+                className="diagram rounded-3xl h-48"
+                role="img"
+                aria-label={imageLoading ? `Loading illustration for ${condition.title}` : `Illustration placeholder for ${condition.title}`}
+              />
+            )}
             <p className="text-xs text-[#53666b] mt-3" style={txt('rgb(83, 102, 107)', 12)}>
               {dialog.visualNote}
             </p>

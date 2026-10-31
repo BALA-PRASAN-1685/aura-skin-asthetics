@@ -1,6 +1,72 @@
 import site from '../data/site.json';
 import { conditions } from '../data/conditions.json';
 import { txt, INK, TEAL, MUTED } from '../styles';
+import { generateLibraryConditionImage } from '../utils/auraAi.js';
+import { useEffect, useRef, useState } from 'react';
+
+function ConditionCard({ condition, onOpen }) {
+  const cardRef = useRef(null);
+  const [imageUrl, setImageUrl] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const card = cardRef.current;
+    if (!card) return undefined;
+
+    let started = false;
+    const loadImage = () => {
+      if (started || imageUrl) return;
+      started = true;
+      setLoading(true);
+      generateLibraryConditionImage(condition)
+        .then(setImageUrl)
+        .catch((error) => console.warn(`Library image unavailable for ${condition.title}:`, error.message))
+        .finally(() => setLoading(false));
+    };
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          loadImage();
+          observer.disconnect();
+        }
+      }, { rootMargin: '200px' });
+      observer.observe(card);
+      return () => observer.disconnect();
+    }
+
+    loadImage();
+    return undefined;
+  }, [condition, imageUrl]);
+
+  return (
+    <button
+      ref={cardRef}
+      key={condition.id}
+      type="button"
+      onClick={(e) => onOpen(condition.id, e.currentTarget)}
+      className="condition-card surface rounded-2xl p-5 text-left"
+      aria-label={`Open educational guide for ${condition.title}`}
+    >
+      {imageUrl ? (
+        <img
+          src={imageUrl}
+          alt={`Educational illustration for ${condition.title}`}
+          className="diagram block h-20 w-full rounded-xl mb-4 object-cover"
+        />
+      ) : (
+        <span
+          className="diagram block h-20 rounded-xl mb-4"
+          role="img"
+          aria-label={loading ? `Loading illustration for ${condition.title}` : `Illustration placeholder for ${condition.title}`}
+        />
+      )}
+      <span className="block font-bold" style={txt(INK, 16)}>
+        {condition.title}
+      </span>
+    </button>
+  );
+}
 
 export default function Conditions({ query, onOpen }) {
   const section = site.conditionsSection;
@@ -23,17 +89,11 @@ export default function Conditions({ query, onOpen }) {
       </p>
       <div id="condition-grid" className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-9">
         {visible.map((c) => (
-          <button
+          <ConditionCard
             key={c.id}
-            type="button"
-            onClick={(e) => onOpen(c.id, e.currentTarget)}
-            className="condition-card surface rounded-2xl p-5 text-left"
-          >
-            <span className="diagram block h-20 rounded-xl mb-4"></span>
-            <span className="block font-bold" style={txt(INK, 16)}>
-              {c.title}
-            </span>
-          </button>
+            condition={c}
+            onOpen={onOpen}
+          />
         ))}
       </div>
       <p

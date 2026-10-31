@@ -42,28 +42,42 @@ async function readJson(req) {
   return JSON.parse(Buffer.concat(chunks).toString('utf8') || '{}');
 }
 
-async function geminiGenerate(prompt) {
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) throw new Error('Gemini API key is not configured.');
+async function cloudflareTextGenerate(prompt) {
+  const accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
+  const apiToken = process.env.CLOUDFLARE_API_TOKEN;
+  if (!accountId || !apiToken) throw new Error('Cloudflare text AI credentials are not configured.');
 
-  const model = process.env.GEMINI_TEXT_MODEL || 'gemini-2.5-flash';
+  const model = process.env.CLOUDFLARE_TEXT_MODEL || '@cf/meta/llama-3.1-8b-instruct';
   const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
+    `https://api.cloudflare.com/client/v4/accounts/${accountId}/ai/run/${model}`,
     {
       method: 'POST',
       headers: {
+        Authorization: `Bearer ${apiToken}`,
         'Content-Type': 'application/json',
-        'x-goog-api-key': apiKey,
       },
       body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: { responseMimeType: 'application/json' },
+        messages: [
+          {
+            role: 'system',
+            content: 'Return only valid JSON. Never diagnose, prescribe medication, guarantee outcomes, or replace a clinician. Keep all content educational and use only the locally matched educational topics.',
+          },
+          { role: 'user', content: prompt },
+        ],
+        max_tokens: 1500,
+        temperature: 0.35,
       }),
     },
   );
+
   const data = await response.json();
-  if (!response.ok) throw new Error(data?.error?.message || 'Gemini request failed.');
-  return data;
+  if (!response.ok || !data.success) {
+    const rawMessage = data.errors?.map((error) => error.message).filter(Boolean).join('; ')
+      || 'Cloudflare text AI request failed.';
+    throw new Error(`Cloudflare text AI failed: ${rawMessage}`);
+  }
+  if (!data.result?.response) throw new Error('Cloudflare text AI returned no response.');
+  return data.result.response;
 }
 
 async function generateImage(prompt) {
@@ -115,6 +129,38 @@ function sanitizeMatchedConditions(value) {
     }));
 }
 
+function parseJsonResponse(text) {
+  const cleaned = String(text)
+    .replace(/^```(?:json)?/i, '')
+    .replace(/```$/, '')
+    .trim();
+  const firstBrace = cleaned.indexOf('{');
+  const lastBrace = cleaned.lastIndexOf('}');
+  if (firstBrace >= 0 && lastBrace > firstBrace) {
+    return JSON.parse(cleaned.slice(firstBrace, lastBrace + 1));
+  }
+  return JSON.parse(cleaned);
+}
+
+function stringList(value, limit, fallback) {
+  if (!Array.isArray(value)) return fallback;
+  const strings = value
+    .filter((item) => typeof item === 'string' && item.trim())
+    .map((item) => item.trim().slice(0, 500))
+    .slice(0, limit);
+  return strings.length ? strings : fallback;
+}
+
+function safeTreatmentList(value, fallback) {
+  const prohibited = /\b(prescription|antibiotic|retinoid|isotretinoin|steroid|dose|dosage|mg\b|apply\b.*\b(cream|gel|ointment)\b|use\b.*\b(tablet|capsule)\b)/i;
+  if (!Array.isArray(value)) return fallback;
+  const strings = value
+    .filter((item) => typeof item === 'string' && item.trim() && !prohibited.test(item))
+    .map((item) => item.trim().slice(0, 500))
+    .slice(0, 5);
+  return strings.length ? strings : fallback;
+}
+
 const server = http.createServer(async (req, res) => {
   if (req.method === 'OPTIONS') {
     res.writeHead(204, {
@@ -126,10 +172,13 @@ const server = http.createServer(async (req, res) => {
   }
 
   if (req.method === 'GET' && req.url === '/api/health') {
+    const hasTextCredentials = Boolean(
+      process.env.CLOUDFLARE_ACCOUNT_ID && process.env.CLOUDFLARE_API_TOKEN,
+    );
     return sendJson(res, 200, {
       status: 'online',
-      textAi: Boolean(process.env.GEMINI_API_KEY),
-      imageAi: Boolean(process.env.CLOUDFLARE_ACCOUNT_ID && process.env.CLOUDFLARE_API_TOKEN),
+      textAi: hasTextCredentials,
+      imageAi: hasTextCredentials,
     });
   }
 
@@ -156,20 +205,39 @@ const server = http.createServer(async (req, res) => {
       };
 
       try {
-        const data = await geminiGenerate(buildAssessmentPrompt(input));
-        const text = data?.candidates?.[0]?.content?.parts?.map((part) => part.text || '').join('');
-        const cleaned = text?.replace(/^```(?:json)?/i, '').replace(/```$/, '').trim();
-        const report = JSON.parse(cleaned);
         const localFallback = fallbackAssessment(input);
+        const generated = parseJsonResponse(
+          await cloudflareTextGenerate(buildAssessmentPrompt(input)),
+        );
+
+        const report = {
+          urgency: localFallback.urgency === 'Urgent'
+            ? 'Urgent'
+            : ['Routine', 'Soon', 'Urgent'].includes(generated.urgency)
+              ? generated.urgency
+              : localFallback.urgency,
+          summary: typeof generated.summary === 'string' && generated.summary.trim()
+            ? generated.summary.trim().slice(0, 1000)
+            : localFallback.summary,
+          conditions: localFallback.conditions,
+          homeCare: stringList(generated.homeCare, 5, localFallback.homeCare),
+          treatments: safeTreatmentList(generated.treatments, localFallback.treatments),
+          redFlags: stringList(generated.redFlags, 5, localFallback.redFlags),
+          imagePrompt: localFallback.imagePrompt,
+        };
+
         return sendJson(res, 200, {
           ...report,
-          imagePrompt: localFallback.imagePrompt,
-          provider: 'gemini',
+          provider: 'cloudflare',
           matchedConditions: input.matchedConditions,
         });
       } catch (error) {
-        console.warn('Gemini text assessment unavailable; using local fallback.', error.message);
-        return sendJson(res, 200, { ...fallbackAssessment(input), provider: 'local', matchedConditions: input.matchedConditions });
+        console.warn('Cloudflare text assessment unavailable; using local fallback.', error.message);
+        return sendJson(res, 200, {
+          ...fallbackAssessment(input),
+          provider: 'local',
+          matchedConditions: input.matchedConditions,
+        });
       }
     }
 
